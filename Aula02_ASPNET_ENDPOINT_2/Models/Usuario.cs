@@ -8,16 +8,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Aula02_ASPNET_ENDPOINT_2.Models
 {
-    [Table("usuario")]
+    [Table("usuarios")]
     public class Usuario
     {
-        [Column("id")]
+        [Key]
+        [Column("id_usuario")]
         public int Id { get; set; }
 
-        [Column("nome")]
-        public string? Nome { get; set; }
+        [Column("password")]
+        public string Password { get; set; }
 
-        [Column("email")]
-        public string? Email { get; set; }
+        [Column("nome_usuario")]
+        public string Nome { get; set; }
+
+        [Column("ramal")]
+        public int Ramal { get; set; }
+
+        [Column("especialidade")]
+        public string Especialidade { get; set; }
     }
 }

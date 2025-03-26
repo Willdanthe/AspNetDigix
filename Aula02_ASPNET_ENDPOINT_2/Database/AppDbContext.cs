@@ -18,7 +18,9 @@ namespace Aula02_ASPNET_ENDPOINT_2.Database
         
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
 
-        public DbSet<Models.Usuario> Usuarios { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Maquinas> Maquinas { get; set; }
+        public DbSet<Softwares> Softwares { get; set; }
 
     }
 }

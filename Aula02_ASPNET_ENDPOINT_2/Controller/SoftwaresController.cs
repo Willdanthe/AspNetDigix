@@ -12,39 +12,39 @@ namespace Aula02_ASPNET_ENDPOINT_2.Controller
 {
     [ApiController]
     [Route("[controller]")]
-    public class UsuarioController : ControllerBase
+    public class SoftwaresController : ControllerBase
     {
         private readonly AppDbContext _context; //readonly é uma variável que só pode ser inicializada no construtor, o AppDbContext é a classe que representa o banco de dados
 
-        public UsuarioController(AppDbContext context) // Construtor que recebe o AppDbContext que é a classe que representa o banco de dados
+        public SoftwaresController(AppDbContext context) // Construtor que recebe o AppDbContext que é a classe que representa o banco de dados
         {
             _context = context;
         }
 
         [HttpGet] // Define que esse método é um GET
-        public async Task<IEnumerable<Usuario>> Get() // Retorna uma lista de usuários
+        public async Task<IEnumerable<Softwares>> Get() // Retorna uma lista de usuários
         {
             // await é uma palavra chave que só pode ser usada em métodos que são marcados com async
-            return await _context.Usuarios.ToListAsync(); // Retorna todos os usuários do banco de dados
+            return await _context.Softwares.ToListAsync(); // Retorna todos os usuários do banco de dados
         }
 
         [HttpPost] // Define que esse método é um POST
-        public async Task<ActionResult<Usuario>> Post([FromBody] Usuario usuario) // Task é um método assíncrono, ActionResult é o tipo de retorno do método, [FromBody] indica que o usuário vai ser passado no corpo da requisição
+        public async Task<ActionResult<Softwares>> Post([FromBody] Softwares softwares) // Task é um método assíncrono, ActionResult é o tipo de retorno do método, [FromBody] indica que o usuário vai ser passado no corpo da requisição
         {
-            _context.Usuarios.Add(usuario); // Adiciona o usuário no banco de dados
+            _context.Softwares.Add(softwares); // Adiciona o usuário no banco de dados
             await _context.SaveChangesAsync(); // Salva as alterações no banco de dados
-            return usuario; // Retorna o usuário que foi adicionado
+            return softwares; // Retorna o usuário que foi adicionado
         }
 
         [HttpPut("{id}")] // Define que esse método é um PUT, {id} é um parâmetro que vai ser passado na URL
-        public async Task<ActionResult<Usuario>> Put(int id, [FromBody] Usuario usuario) // Task é um método assíncrono, ActionResult é o tipo de retorno do método, [FromBody] indica que o usuário vai ser passado no corpo da requisição
+        public async Task<ActionResult<Softwares>> Put(int id, [FromBody] Softwares softwares) // Task é um método assíncrono, ActionResult é o tipo de retorno do método, [FromBody] indica que o usuário vai ser passado no corpo da requisição
         {
-            var existente = await _context.Usuarios.FindAsync(id); // Procura o usuário no banco de dados
+            var existente = await _context.Softwares.FindAsync(id); // Procura o usuário no banco de dados
             if (existente == null) return NotFound(); // Se não encontrar o usuário, retorna um erro 404
-            existente.Nome = usuario.Nome; // Atualiza o nome do usuário
-            existente.Password = usuario.Password; // Atualiza o email do usuário
-            existente.Ramal = usuario.Ramal;
-            existente.Especialidade = usuario.Especialidade;
+            existente.Produto = softwares.Produto; // Atualiza o nome do usuário
+            existente.HardDisk = softwares.HardDisk; // Atualiza o email do usuário
+            existente.Memoria_Ram = softwares.Memoria_Ram;
+            existente.Fk_Maquina = softwares.Fk_Maquina;
 
             await _context.SaveChangesAsync(); // Salva as alterações no banco de dados
             return existente; // Retorna o usuário que foi atualizado
@@ -54,9 +54,9 @@ namespace Aula02_ASPNET_ENDPOINT_2.Controller
         [HttpDelete("{id}")] // Define que esse método é um DELETE, {id} é um parâmetro que vai ser passado na URL
         public async Task<ActionResult> Delete(int id) // Task é um método assíncrono, ActionResult é o tipo de retorno do método
         {
-            var existente = await _context.Usuarios.FindAsync(id); // Procura o usuário no banco de dados
+            var existente = await _context.Softwares.FindAsync(id); // Procura o usuário no banco de dados
             if (existente == null) return NotFound(); // Se não encontrar o usuário, retorna um erro 404
-            _context.Usuarios.Remove(existente); // Remove o usuário do banco de dados
+            _context.Softwares.Remove(existente); // Remove o usuário do banco de dados
             await _context.SaveChangesAsync(); // Salva as alterações no banco de dados
             return NoContent(); // Retorna um status 204
         }
