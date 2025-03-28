@@ -27,6 +27,14 @@ namespace Aula03_Exemplo4.Controller
             // await é uma palavra chave que só pode ser usada em métodos que são marcados com async
             return await _context.Usuarios.ToListAsync(); // Retorna todos os usuários do banco de dados
         }
+        [HttpGet("{id}")] // Define que esse método é um GET
+        public async Task<ActionResult<Usuario>> GetById(int id) // Retorna uma lista de usuários
+        {
+            // await é uma palavra chave que só pode ser usada em métodos que são marcados com async
+            var user =  await _context.Usuarios.FindAsync(id); // Retorna todos os usuários do banco de dados
+            if (user == null) return NotFound();
+            return user;
+        }
 
         [HttpPost] // Define que esse método é um POST
         public async Task<ActionResult<Usuario>> Post([FromBody] Usuario usuario) // Task é um método assíncrono, ActionResult é o tipo de retorno do método, [FromBody] indica que o usuário vai ser passado no corpo da requisição

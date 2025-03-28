@@ -33,8 +33,19 @@ namespace Aula03_Exemplo4.Controller
         //     return await _context.Maquinas.ToListAsync(); // Retorna todos os usuários do banco de dados
         // }
 
+        [HttpGet("{id}")]
+       public async Task<ActionResult<Maquinas>> GetById(int id)
+        {
+            var user = await _context.Maquinas.FindAsync(id);
+            if (user == null) return NotFound();
+            return user;
+        }
+
+
+
         [HttpPost] // Define que esse método é um POST
-        public async Task<ActionResult<Maquinas>> Post([FromBody] Maquinas maquinas) // Task é um método assíncrono, ActionResult é o tipo de retorno do método, [FromBody] indica que o usuário vai ser passado no corpo da requisição
+        public async Task<ActionResult<Maquinas>> Post([FromBody] Maquinas maquinas) // Task é um método assíncrono, ActionResult é o tipo de retorno do método, [FromBody] indica que o 
+        // usuário vai ser passado no corpo da requisição
         {
             _context.Maquinas.Add(maquinas); // Adiciona o usuário no banco de dados
             await _context.SaveChangesAsync(); // Salva as alterações no banco de dados

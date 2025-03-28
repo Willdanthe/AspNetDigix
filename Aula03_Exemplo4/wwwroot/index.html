@@ -13,11 +13,13 @@
 
 <body>
     <div class="container">
+        <a class="btn btn-warning" href="maquina.html">Cadastrar Maquinas</a>
+        <a class="btn btn-primary" href="software.html">Cadastrar Software</a>
         <h1 class="title">Cadastro de Usuario</h1>
         <form id="usuarioForm">
-            <input type="hidden" class="form-control" id="id">
+            <input type="number" class="form-control" id="idUsuario" placeholder="Id do Usuário"required>
             <input type="text" class="form-control" id="nome" placeholder="Nome do Usuário"required>
-            <input type="password" class="form-control" id="senha" placeholder="Senha" required>
+            <input type="password" class="form-control" id="password" placeholder="Senha" required>
             <input type="number" class="form-control" id="ramal" placeholder="Ramal" required>
             <input type="text"  class="form-control" id="especialidade" placeholder="Especialidade" required>
 
