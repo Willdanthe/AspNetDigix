@@ -12,15 +12,18 @@
 </head>
 
 <body>
+    <div class="d-flex justify-content-center mt-4">
+        <a class="btn btn-warning btn-lg mx-2 custom-btn" href="index.html">Usuário</a>
+        <a class="btn btn-primary btn-lg mx-2 custom-btn" href="maquina.html">Máquinas</a>
+    </div>
     <div class="container">
         <h1 class="title">Cadastro de Software</h1>
         <form id="softwareForm">
-            <input type="number" class="form-control" id="idSoftware" placeholder="Id da Maquina"required>
-            <input type="text" class="form-control" id="produto" placeholder="Tipo da Máquina: Windows, Linux"required>
-            <input type="number" class="form-control" id="harddisk" placeholder="Quantidade do HD" required>
-            <input type="number" class="form-control" id="memoria_ram" placeholder="Quantidade de RAM" required>
-            <input type="number" class="form-control" id="fk_Maquina" placeholder="Id da máquina" required>
-
+            <input type="number" class="form-control mb-2" id="idSoftware" placeholder="Id da Maquina"required>
+            <input type="text" class="form-control mb-2" id="produto" placeholder="Tipo da Máquina: Windows, Linux"required>
+            <input type="number" class="form-control mb-2" id="harddisk" placeholder="Quantidade do HD" required>
+            <input type="number" class="form-control mb-2" id="memoria_ram" placeholder="Quantidade de RAM" required>
+            <input type="number" class="form-control mb-2" id="fk_Maquina" placeholder="Id da máquina" required>
             <button class="btn btn-primary" type="submit">Salvar</button>
         </form>
         
@@ -36,6 +39,8 @@
                 <th scope="col">HD</th>
                 <th scope="col">RAM</th>
                 <th scope="col">Id da maquina</th>
+                <th scope="col">Ações</th>
+
               </tr>
             </thead>
             <tbody>

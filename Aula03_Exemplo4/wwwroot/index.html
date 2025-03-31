@@ -12,16 +12,19 @@
 </head>
 
 <body>
+    <div class="d-flex justify-content-center mt-4">
+        <a class="btn btn-warning btn-lg mx-2 custom-btn" href="maquina.html">Máquinas</a>
+        <a class="btn btn-primary btn-lg mx-2 custom-btn" href="software.html">Softwares</a>
+    </div>
     <div class="container">
-        <a class="btn btn-warning" href="maquina.html">Cadastrar Maquinas</a>
-        <a class="btn btn-primary" href="software.html">Cadastrar Software</a>
-        <h1 class="title">Cadastro de Usuario</h1>
+
+        <h1 class="title">Cadastro de Usuário</h1>
         <form id="usuarioForm">
-            <input type="number" class="form-control" id="idUsuario" placeholder="Id do Usuário"required>
-            <input type="text" class="form-control" id="nome" placeholder="Nome do Usuário"required>
-            <input type="password" class="form-control" id="password" placeholder="Senha" required>
-            <input type="number" class="form-control" id="ramal" placeholder="Ramal" required>
-            <input type="text"  class="form-control" id="especialidade" placeholder="Especialidade" required>
+            <input type="number" class="form-control mb-2" id="idUsuario" placeholder="Id do Usuário"required>
+            <input type="text" class="form-control mb-2" id="nome" placeholder="Nome do Usuário"required>
+            <input type="password" class="form-control mb-2" id="password" placeholder="Senha" required>
+            <input type="number" class="form-control mb-2" id="ramal" placeholder="Ramal" required>
+            <input type="text"  class="form-control mb-2" id="especialidade" placeholder="Especialidade" required>
 
             <button class="btn btn-primary" type="submit">Salvar</button>
         </form>
@@ -38,6 +41,7 @@
                 <th scope="col">Senha</th>
                 <th scope="col">Ramal</th>
                 <th scope="col">Especialidade</th>
+                <th scope="col">Ações</th>
               </tr>
             </thead>
             <tbody>
