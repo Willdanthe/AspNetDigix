@@ -1,0 +1,41 @@
+@Aula04_ASPNETCORE_HostAddress = http://localhost:5287
+
+GET {{Aula04_ASPNETCORE_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+# Testar Get
+
+Get http://localhost:5287/Usuario/
+Accept: application/json
+
+###
+# Testar Post
+POST  http://localhost:5287/Usuario
+Content-Type: application/json
+
+{
+    "id" : 14,
+    "password": "uzem4k1",
+    "nome":"Naruto",
+    "ramal" : 7,
+    "especialidade": "chunnin"
+}
+
+
+###
+# Testar PUT
+PUT http://localhost:5287/Usuario/14
+Content-Type: application/json
+
+{
+
+    "nome":"Naruto",
+    "password": "uzam4k1",
+    "ramal" : 7,
+    "especialidade": "Hokage"
+}
+
+###
+# Testar Delete
+DELETE  Get http://localhost:5287/Usuario/14
