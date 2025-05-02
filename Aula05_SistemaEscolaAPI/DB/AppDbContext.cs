@@ -9,11 +9,12 @@ namespace Aula05_SistemaEscolaAPI.DB
 {
     public class AppDbContext : DbContext
     {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options){}
+        
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Disciplina> Disciplinas { get; set; }
         public DbSet<DisciplinaAlunoCurso> DisciplinasAlunosCursos { get; set; }
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options){}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

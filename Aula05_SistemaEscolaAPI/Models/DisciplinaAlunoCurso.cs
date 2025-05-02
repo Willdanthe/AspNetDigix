@@ -11,5 +11,9 @@ namespace Aula05_SistemaEscolaAPI.Models
         public int AlunoId { get; set; }
         public int CursoId { get; set; }
         public int DisciplinaId { get; set; }
+
+        public Aluno? Aluno { get; set; }
+        public Curso? Curso { get; set; }
+        public Disciplina? Disciplina { get; set; }
     }
 }

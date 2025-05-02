@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNETCORE", "ASPNETCORE\AS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aula04_ASPNETCORE", "Aula04_ASPNETCORE\Aula04_ASPNETCORE.csproj", "{542BC6E6-3F59-4EF3-9A10-5B8D719F8CAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aula05_SistemaEscolaAPI", "Aula05_SistemaEscolaAPI\Aula05_SistemaEscolaAPI.csproj", "{513D7053-AEB0-4454-B224-469920778972}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +141,18 @@ Global
 		{542BC6E6-3F59-4EF3-9A10-5B8D719F8CAF}.Release|x64.Build.0 = Release|Any CPU
 		{542BC6E6-3F59-4EF3-9A10-5B8D719F8CAF}.Release|x86.ActiveCfg = Release|Any CPU
 		{542BC6E6-3F59-4EF3-9A10-5B8D719F8CAF}.Release|x86.Build.0 = Release|Any CPU
+		{513D7053-AEB0-4454-B224-469920778972}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{513D7053-AEB0-4454-B224-469920778972}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{513D7053-AEB0-4454-B224-469920778972}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{513D7053-AEB0-4454-B224-469920778972}.Debug|x64.Build.0 = Debug|Any CPU
+		{513D7053-AEB0-4454-B224-469920778972}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{513D7053-AEB0-4454-B224-469920778972}.Debug|x86.Build.0 = Debug|Any CPU
+		{513D7053-AEB0-4454-B224-469920778972}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{513D7053-AEB0-4454-B224-469920778972}.Release|Any CPU.Build.0 = Release|Any CPU
+		{513D7053-AEB0-4454-B224-469920778972}.Release|x64.ActiveCfg = Release|Any CPU
+		{513D7053-AEB0-4454-B224-469920778972}.Release|x64.Build.0 = Release|Any CPU
+		{513D7053-AEB0-4454-B224-469920778972}.Release|x86.ActiveCfg = Release|Any CPU
+		{513D7053-AEB0-4454-B224-469920778972}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

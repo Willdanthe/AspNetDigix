@@ -1,41 +1,43 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.EntityFrameworkCore;
+using Aula05_SistemaEscolaAPI.Models;
+using Aula05_SistemaEscolaAPI.DTO;
+using Aula05_SistemaEscolaAPI.DB;
+using FluentValidation.AspNetCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.OpenApi.Models;
+using System.Text;
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+try
 {
-    app.MapOpenApi();
+
+    var builder = WebApplication.CreateBuilder(args);
+
+    builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection")));
+
+    builder.Services.AddControllers(); // Adiciona suporte aos controladores
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen( c => // Para gerar a documentação lá em baixo, que é o Scheaams
+    {
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sistema Escolar API", Version = "v1"});
+    });
+
+    var app = builder.Build();
+
+    app.UseSwagger();
+    app.UseSwaggerUI();
+
+    app.UseHttpsRedirection(); // Redireciona para HTTPS
+
+    app.UseAuthorization(); // Habilta a Autorização
+
+    app.MapControllers(); // Mapeia os controllers
+
+    app.Run();
 }
 
-app.UseHttpsRedirection();
-
-var summaries = new[]
+catch (System.Exception ex)
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
-
-app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    System.Console.WriteLine("Erro de: " + ex.Message);
 }
