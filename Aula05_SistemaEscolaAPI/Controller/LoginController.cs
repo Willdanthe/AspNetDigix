@@ -30,7 +30,8 @@ namespace Aula05_SistemaEscolaAPI.Controller
             var users = new List<Usuario>
             {
                 new() { Username = "admin", Password = "123", Role = "Administrados"},
-                new() { Username = "func", Password = "123", Role = "Funcionário"}
+                new() { Username = "func", Password = "123", Role = "Funcionário"},
+                new() { Username = "will", Password = "will"}
             };
 
             var user = users.FirstOrDefault( u => 

@@ -1,0 +1,24 @@
+/* É a parte que fica em cima da página com a imagem de fundo e o texto */
+.hero-section {
+    background-color: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("https://source.unsplash.com/random/1200x600/?school,university");
+    background-size: cover;
+    background-position: center;
+    padding: 100px;
+    margin-bottom: 50px;
+    color: #000000;
+    text-align: center;    
+}
+
+.navbar{
+    box-shadow: 0 2px 10px rgba(3, 1, 1, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700px;
+    font-size: 1.5rem;
+}
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 30px;
+}
